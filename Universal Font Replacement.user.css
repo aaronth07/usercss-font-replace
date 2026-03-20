@@ -49,10 +49,9 @@
 }  
 
 /*Set font properties globally*/
-
 *:not([aria-hidden="true"], [class*="fa-"], .fa, .fab, .fad, .fal, .far, .fas, .fass, .fasr, .fat, .icofont, [style*="font-"], [class*="icon"], [class*="Icon"], [class*="symbol"], [class*="Symbol"], .glyphicon, [class*="material-symbol"], [class*="material-icon"], mu, [class*="mu-"], .typcn, [class*="vjs-"]), svg {
 	font-family: "InterVariable";
-	;-webkit-font-smoothing: antialiased!important;
+	-webkit-font-smoothing: antialiased!important;
 	-moz-osx-font-smoothing: grayscale!important; 
 }
 
