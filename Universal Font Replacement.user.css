@@ -1,0 +1,122 @@
+/* ==UserStyle==
+@name           Universal Font Replacement
+@namespace      github.com/openstyles/stylus
+@version        1.0.0
+@description    Simple UserCSS code that allows relatively safe universal variable font replacement and fined tuned customization over exposed variable font features. It is recommended that you use the Stylus extension.
+@preprocessor	default
+@var checkbox	globalkernm "Enable Kerning for Non-Small Fonts" 1
+@var range      globalsize "Global Font Size" [1.00, 0.70, 1.30, 0.01, "rem"]
+@var range      globalweight "Global Font Weight:" [280, 100, 900, 10, ""]
+@var range      globalstroke "Global Font Stroke:" [0.3, 0.0, 2.0, 0.05, "px"]
+@var range      globalspacing "Global Font Spacing:" [0.01, -0.03, 0.3, 0.005, "ch"]
+@var range      headingsize "Heading Font Size" [24, 18, 32, 1, "px"]
+@var range      headingweight "Heading Weight:" [340, 100, 900, 10, ""]
+@var range      headingstroke "Heading Stroke:" [0, 0.0, 2.0, 0.05, "px"]
+@var range      headingspacing "Heading Spacing Multiplier:" [0.8, 0.1, 2.0, 0.1, ""]
+@var range      monoweight "Mono Weight:" [420, 100, 900, 10, ""]
+@var range      monostroke "Mono Stroke:" [0.1, 0.0, 2.0, 0.05, "px"]
+@var range      monospacing "Mono Spacing Multiplier:" [0.3, 0.0, 1.5, 0.01, "px"]
+@var range      smallweight "Small Weight:" [280, 100, 900, 10, ""]
+@var range      smallstroke "Small Font Stroke:" [0.25, 0.0, 2.0, 0.05, "px"]
+@var range      smallspacing "Small Spacing Multiplier:" [0.3, 0.0, 1.5, 0.01, "px"]
+==/UserStyle== */
+/* Variable fonts usage: */
+/*Inter - Font1*/
+@font-face {
+  font-family: "InterVariable";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: local("Inter Variable Text");
+}
+
+@font-face {
+  font-family: "InterVariable";
+  font-style: italic;
+  font-weight: 100 900;
+  font-display: swap; 
+  src: local("Inter Variable Text Italic");
+}
+
+/*Define font properties*/
+:root {
+	--globaloptic: auto; /* auto, none, if checkbox is checked */
+		
+	/*fonts*/
+	--font1: "InterVariable";
+	--fontglobal: var(--font1);	
+	--codefont: "Cascadia Code"; 
+}  
+
+/*Set font properties globally*/
+
+*:not([aria-hidden="true"], [class*="fa-"], .fa, .fab, .fad, .fal, .far, .fas, .fass, .fasr, .fat, .icofont, [style*="font-"], [class*="icon"], [class*="Icon"], [class*="symbol"], [class*="Symbol"], .glyphicon, [class*="material-symbol"], [class*="material-icon"], mu, [class*="mu-"], .typcn, [class*="vjs-"]), svg {
+	font-family: "InterVariable";
+	;-webkit-font-smoothing: antialiased!important;
+	-moz-osx-font-smoothing: grayscale!important; 
+}
+
+* {
+    font-kerning: var(--globalkernm)!important;
+    font-optical-sizing: var(--globaloptic)!important;
+	-webkit-text-stroke: var(--globalstroke) CurrentColor!important;
+	font-variation-settings: "wght" var(--globalweight)!important;
+	font-size: var(--globalsize)!important;
+	/*font-size-adjust: var(--globalsizeadjustm)!important;*/
+	letter-spacing: var(--globalspacing)!important;	
+}
+
+h1, h2, h3, h4, h5, h6, h1 > *, h2 > *, h3 > *, h4 > *, h5 > *, h6 > *  {
+	font-variation-settings: "wght" var(--headingweight)!important;
+	font-size: var(--headingsize)!important;
+	letter-spacing: calc(var(--globalspacing) * var(--headingspacing))!important;	
+	-webkit-text-stroke: var(--headingstroke) CurrentColor!important;
+}
+
+small, big, sub, sup, abbr, time, label, input, button {
+	font-kerning: var(--kernno)!important;
+	font-variation-settings: "wght" var(--smallweight)!important;
+	letter-spacing: var(--smallspacing)!important;	
+	-webkit-text-stroke: var(--smallstroke) CurrentColor!important;
+} 
+
+code, code *, pre, pre > *, div code {
+	font-family: var(--codefont)!important;
+	font-variation-settings: "wght" var(--monoweight)!important;
+	letter-spacing: var(--monospacing)!important;	
+	-webkit-text-stroke: var(--monostroke) CurrentColor!important;
+}
+
+
+/*Font feature customization. This is not enabled by default. Feel free to customize to your own preference.*/
+/*		@font-feature-values InterVariable {
+/*			@character-variant {
+/*				cv01: 1; cv02: 2; cv03: 3; cv04: 4; cv05: 5; cv06: 6; cv07: 7; cv08: 8;
+/*				cv09: 9; cv10: 10; cv11: 11; cv12: 12; cv13: 13;
+/*				alt-1:            1; /* Alternate one */
+/*				alt-3:            9; /* Flat-top three */
+/*				open-4:           2; /* Open four */
+/*				open-6:           3; /* Open six */
+/*				open-9:           4; /* Open nine */
+/*				lc-l-with-tail:   5; /* Lower-case L with tail */
+/*				simplified-u:     6; /* Simplified u */
+/*				alt-double-s:     7; /* Alternate German double s */
+/*				uc-i-with-serif:  8; /* Upper-case i with serif */
+/*				uc-g-with-spur:  10; /* Capital G with spur */
+/*				single-story-a:  11; /* Single-story a */
+/*				compact-lc-f:    12; /* Compact f */
+/*				compact-lc-t:    13; /* Compact t */
+/*			}
+/*			@styleset {
+/*				ss01: 1; ss02: 2; ss03: 3; ss04: 4; ss05: 5; ss06: 6; ss07: 7; ss08: 8;
+/*				open-digits: 1;                /* Open digits */
+/*				disambiguation: 2;             /* Disambiguation (with zero) */
+/*				disambiguation-except-zero: 4; /* Disambiguation (no zero) */
+/*				round-quotes-and-commas: 3;    /* Round quotes &amp; commas */
+/*				square-punctuation: 7;         /* Square punctuation */
+/*				square-quotes: 8;              /* Square quotes */
+/*				circled-characters: 5;         /* Circled characters */
+/*				squared-characters: 6;         /* Squared characters */
+/*    	}
+/*	}
+*/
