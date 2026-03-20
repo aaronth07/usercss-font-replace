@@ -56,3 +56,11 @@ Click on "Universal Font Replacement.css" and click "Raw".
 - mono weight control doesn't work
 - serif fonts are overwritten (unlikely to be fixed due to the limitations of userCSS)
 - Cascadia Code is not currently using variable aware controls
+
+## Comparison
+Off:
+<img width="822" height="893" alt="Off" src="https://github.com/user-attachments/assets/be6a1002-abc6-4869-bec5-a8613f126150" />
+
+On:
+<img width="823" height="909" alt="On" src="https://github.com/user-attachments/assets/21a45302-ccbd-4cd3-b0c7-7fb77bff72c9" />
+
