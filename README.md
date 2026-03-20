@@ -46,6 +46,7 @@ Click on "Universal Font Replacement.css" and click "Raw".
 - option to toggle font replacement
 - separated header font
 - use the variable aware version of Cascadia Code
+- standardize GUI control units
 
 #### Planned Fonts:
 - Roboto Flex
@@ -58,9 +59,9 @@ Click on "Universal Font Replacement.css" and click "Raw".
 - Cascadia Code is not currently using variable aware controls
 
 ## Comparison
+*(Click on images to view sharp versions)*
 Off:
 <img width="822" height="893" alt="Off" src="https://github.com/user-attachments/assets/be6a1002-abc6-4869-bec5-a8613f126150" />
 
 On:
 <img width="823" height="909" alt="On" src="https://github.com/user-attachments/assets/21a45302-ccbd-4cd3-b0c7-7fb77bff72c9" />
-
